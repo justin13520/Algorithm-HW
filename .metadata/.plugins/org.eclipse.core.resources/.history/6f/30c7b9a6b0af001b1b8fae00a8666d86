@@ -1,0 +1,39 @@
+package advancedHW4;
+import java.util.*;
+public class Daycare{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		ArrayList<ArrayList<Integer>> beforeAfter = new ArrayList<ArrayList<Integer>>();
+		Daycare d = new Daycare(beforeAfter);
+		while(s.hasNextInt()) {
+			int rooms = s.nextInt();
+			for(int i = 0; i < rooms; i++) {
+				ArrayList<Integer> room = new ArrayList<Integer>();
+				room.add(s.nextInt());
+				room.add(s.nextInt());
+			}
+			System.out.println(d.beforeAfterRooms.toString());
+		}
+	}
+	ArrayList<ArrayList<Integer>> beforeAfterRooms;
+	int extraCapacity;
+	public Daycare(ArrayList<ArrayList<Integer>> bf) {
+		beforeAfterRooms = bf;
+		extraCapacity = 0;
+	}
+	public int extraChildren() {
+		sortBeforeAfter();
+		return 0;
+	}
+	public void sortBeforeAfter() {
+		Collections.sort(this.beforeAfterRooms, new Comparator<ArrayList<Integer>>() {
+			public int compare(ArrayList<Integer> room1, ArrayList<Integer> room2) {
+				int c = (room1.get(1)-room1.get(0)) - (room2.get(1)-room2.get(0));
+				return c;
+			}
+		});
+	}
+	
+}

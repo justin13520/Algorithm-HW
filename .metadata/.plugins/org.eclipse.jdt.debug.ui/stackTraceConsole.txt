@@ -1,0 +1,29 @@
+6 22
+b1 breaker
+s1 switch
+l1 light
+l2 light
+j1 box
+o1 outlet
+b1 s1 1
+s1 b1 1
+b1 j1 2
+j1 b1 2
+b1 o1 5
+o1 b1 5
+s1 o1 1
+o1 s1 1
+s1 j1 1
+j1 s1 1
+j1 l1 1
+l1 j1 1
+o1 l1 1
+l1 o1 1
+s1 l1 1
+l1 s1 5
+o1 l2 1
+l2 o1 1
+s1 l2 2
+l1 s1 5
+l1 l2 3
+l2 l1 3

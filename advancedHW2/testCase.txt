@@ -1,0 +1,188 @@
+4 4 10
+1 4 
+1 2 1 3 
+2 3 4 6
+3 4 7 8
+4 2 9 10
+Output: 0
+No possible paths
+
+4 5 15
+3 2
+1 2 4 7
+3 1 3 6
+3 4 7 15
+2 4 3 5
+4 2 10 13
+Output: 7
+2 overlaps, 1 subsumes another
+
+4 4 10
+3 2
+3 1 1 6
+3 4 1 6
+1 2 4 7
+4 2 4 7
+Output: 3
+2 paths have the same exact badges
+
+2 1 3
+1 2
+1 2 1 3
+Output: 3
+2 nodes
+
+4 4 12
+2 3
+2 1 1 8
+1 3 3 10
+2 4 6 8 
+4 3 10 12
+Output: 6
+
+4 3 7
+1 4
+1 2 1 7
+2 3 3 5
+3 4 4 6
+Output: 2
+
+3 3 10
+1 3
+1 2 1 7
+2 3 3 5
+2 1 4 9
+
+
+
+
+
+
+
+for(int i = 0; i <= this.badgeRanges.size()-1; i++) {
+			if(this.badgeRanges.get(i)[1] < this.locks.get(start).edges.get(0).startBadge) {
+				continue;
+			}
+			else {
+				if(i == this.badgeRanges.size()-1) {
+					int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i)[1]-1};
+					this.uniqueRanges.add(r);
+					int[] r1 = {this.badgeRanges.get(i)[1],this.badgeRanges.get(i)[1]};
+					this.uniqueRanges.add(r1);
+				}
+				else {
+					if(Arrays.equals(this.badgeRanges.get(i), this.badgeRanges.get(i+1))){
+						continue;
+					}
+					else if(this.badgeRanges.get(i)[1] < this.badgeRanges.get(i+1)[0]) {//upper1 < lower2 not touching
+						int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i)[1]};
+						this.uniqueRanges.add(r);
+					}
+					else if(this.badgeRanges.get(i)[1] >= this.badgeRanges.get(i+1)[0] && this.badgeRanges.get(i)[0] < this.badgeRanges.get(i+1)[0]
+							&& this.badgeRanges.get(i+1)[1] > this.badgeRanges.get(i)[1]){//overlap
+						int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i+1)[0]-1};
+						this.uniqueRanges.add(r);
+					}
+					else if(this.badgeRanges.get(i)[0] <= this.badgeRanges.get(i+1)[0] && this.badgeRanges.get(i)[1] >= this.badgeRanges.get(i+1)[1]){//subsumes
+						int r[] = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i+1)[0]-1};
+						int r1[] = {this.badgeRanges.get(i+1)[0],this.badgeRanges.get(i+1)[1]};
+						int r2[] = {this.badgeRanges.get(i+1)[1]+1,this.badgeRanges.get(i)[1]};
+						this.uniqueRanges.add(r);
+						this.uniqueRanges.add(r1);
+						this.uniqueRanges.add(r2);
+						i++;
+//						if(this.badgeRanges.get(i)[1] > this.badgeRanges.get(i+2)[0] &&) {
+//							this.badgeRanges.get(i+2)[0] = this.badgeRanges.get(i)[1]+1;
+//					}
+					}
+					else {
+						int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i+1)[0]-1};
+						this.uniqueRanges.add(r);
+					}
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+if(this.badgeRanges.size() == 2) {//only two ranges to check
+			if(this.badgeRanges.get(0)[1] > this.badgeRanges.get(1)[0]
+					&& this.badgeRanges.get(0)[1] <= this.badgeRanges.get(1)[1]) {//overlaps but not subsume
+				int r[] = {this.badgeRanges.get(1)[0],this.badgeRanges.get(0)[1]};//	[ 		]
+				this.uniqueRanges.add(r); 										//		    [   ]  ]
+			}
+			
+			else if(this.badgeRanges.get(0)[1] > this.badgeRanges.get(1)[1]) {//subsumes [          ]
+				this.uniqueRanges.add(this.badgeRanges.get(1));		         //		     	[     ]
+			}
+		}
+		else if(this.badgeRanges.size()==1) {
+			this.uniqueRanges.add(this.badgeRanges.get(0));// [		]
+		}
+		else {
+			for(int i = 0; i < this.badgeRanges.size(); i++) {//has size of at least 3
+				if(this.locks.get(this.start).edges.get(0).startBadge > this.badgeRanges.get(i)[1]) {
+					//if first range is below the lowest possible badge for the start node
+					continue;
+				}
+				else if(this.badgeRanges.get(i)[1] < this.badgeRanges.get(i+1)[0]){
+					//if the current range does not overlap		[   	]
+					//														[		]	
+					this.uniqueRanges.add(this.badgeRanges.get(i));
+				}
+				else if(){
+					//overlaps
+					
+				}
+			}
+	
+
+if(this.badgeRanges.size() == 2) {//only two ranges to check
+			if(this.badgeRanges.get(0)[1] > this.badgeRanges.get(1)[0]
+					&& this.badgeRanges.get(0)[1] <= this.badgeRanges.get(1)[1]) {//overlaps but not subsume
+				int r[] = {this.badgeRanges.get(1)[0],this.badgeRanges.get(0)[1]};//	[ 		]
+				this.uniqueRanges.add(r); 										//		    [   ]  ]
+			}
+			
+			else if(this.badgeRanges.get(0)[1] > this.badgeRanges.get(1)[1]) {//subsumes [          ]
+				this.uniqueRanges.add(this.badgeRanges.get(1));		         //		     	[     ]
+			}
+		}
+		
+		else if(this.badgeRanges.size()==1) {
+			this.uniqueRanges.add(this.badgeRanges.get(0));// [		]
+		}
+		
+		else {
+			for(int i = 0; i <= this.badgeRanges.size()-1; i++) {
+				if(this.badgeRanges.get(i)[1] < this.locks.get(this.start).edges.get(0).startBadge) {
+					continue;
+				}
+				if(i == this.badgeRanges.size()-1) {//last range
+					int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i)[1]-1};
+					this.uniqueRanges.add(r);
+					int[] r1 = {this.badgeRanges.get(i)[1],this.badgeRanges.get(i)[1]};
+					this.uniqueRanges.add(r1);
+				}
+				else {
+					if(Arrays.equals(this.badgeRanges.get(i), this.badgeRanges.get(i+1))){
+						continue;
+					}
+					else if(this.badgeRanges.get(i)[1] < this.badgeRanges.get(i+1)[0]) {//upper1 < lower2 not touching
+						int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i)[1]};
+						this.uniqueRanges.add(r);
+					}
+					else {
+						int[] r = {this.badgeRanges.get(i)[0],this.badgeRanges.get(i+1)[0]-1};
+						this.uniqueRanges.add(r);
+					}
+				}
+			}	
+		}
+	}

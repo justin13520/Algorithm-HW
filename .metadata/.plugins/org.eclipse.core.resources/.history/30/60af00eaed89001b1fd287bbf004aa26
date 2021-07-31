@@ -1,0 +1,34 @@
+package advancedHW2;
+import java.util.*;
+public class Security {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s = new Scanner(System.in);
+		int rooms = s.nextInt();
+		int locks = s.nextInt();
+		int badgeNum = s.nextInt();
+		int start = s.nextInt();
+		int destination = s.nextInt();
+		for(int i = 0; i < locks; i++) {
+			
+		}
+		
+		
+		
+		s.close();
+	}
+	public class room{//node
+		int roomNumber;
+		HashSet<Integer> numBadges;
+		public room(int r) {
+			roomNumber = r;
+			numBadges = new HashSet<Integer>();
+		}
+		public void addBadges(int i, int j) {
+			for(int k = i; k <= j; i++) {
+				numBadges.add(i);
+			}
+		}
+	};
+}

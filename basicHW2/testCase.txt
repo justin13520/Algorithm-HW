@@ -1,0 +1,224 @@
+5 9
+b1 breaker
+j1 box
+s1 switch
+l1 light
+o1 outlet
+s1 j1 1
+b1 s1 1
+b1 j1 5
+b1 o1 2
+b1 l1 2
+s1 o1 1
+s1 l1 5
+o1 l1 1
+j1 l1 1
+Output : 13
+
+5 9
+b1 breaker
+j1 box
+s1 switch
+l1 light
+o1 outlet
+s1 b1 1
+j1 b1 5
+o1 b1 2
+l1 b1 2
+o1 s1 1
+j1 s1 1
+l1 s1 5
+l1 o1 1
+l1 j1 1
+
+
+4 5
+b1 breaker
+s1 switch
+l1 light
+o1 outlet
+b1 s1 1
+b1 o1 2
+o1 s1 3
+s1 l1 4
+o1 l1 5
+Output : 7
+
+5 8
+b1 breaker
+s1 switch
+s2 switch
+l1 light
+l2 light
+b1 s1 20
+b1 s2 20
+s1 l1 20
+s2 l2 20
+s2 l1 1
+s1 l2 1
+b1 l1 1
+b1 l2 1
+Output : 80
+
+6 8
+b1 breaker
+j1 box
+s1 switch
+l1 light
+l2 light
+o1 outlet
+b1 j1 5
+b1 o1 1
+j1 s1 1
+j1 o1 2
+l1 o1 1
+l1 l2 2
+s1 l1 6
+s1 l2 1
+Output : 7
+
+7 10
+b1 breaker
+j1 box
+s1 switch
+l1 light
+l2 light
+o1 outlet
+s2 switch
+j1 b1 5
+o1 b1 1
+s1 j1 1
+o1 j1 2
+l1 o1 1
+l2 l1 2
+l1 s1 6
+l2 s1 1
+s2 sl 1
+s1 s2 1
+
+11 14
+b1 breaker
+j1 box
+j2 box
+o1 outlet
+o2 outlet
+s1 switch
+s2 switch
+s3 switch
+l1 light
+l2 light
+l3 light
+b1 o1 5
+b1 s3 5
+s3 l3 5
+o1 j1 5
+o1 j2 5
+j2 s1 5
+j2 s2 5
+s1 l1 5
+j2 o2 5
+s2 l2 5
+s3 o2 1
+j1 s1 6
+s2 l1 1
+o2 l2 1
+b1 l2 1
+Output : 46
+
+5 8
+b1 breaker
+j1 box
+s1 switch
+l1 light
+o1 outlet
+b1 o1 10
+o1 b1 1
+o1 j1 10
+j1 b1 1
+j1 s1 10
+s1 b1 1
+s1 l1 10
+l1 b1 1
+
+6 22
+b1 breaker
+s1 switch
+l1 light
+l2 light
+j1 box
+o1 outlet
+b1 s1 1
+s1 b1 1
+b1 j1 2
+j1 b1 2
+b1 o1 5
+o1 b1 5
+s1 o1 1
+o1 s1 1
+s1 j1 1
+j1 s1 1
+j1 l1 1
+l1 j1 1
+o1 l1 1
+l1 o1 1
+s1 l1 1
+l1 s1 5
+o1 l2 1
+l2 o1 1
+s1 l2 2
+l1 s1 5
+l1 l2 3
+l2 l1 3
+
+7 12
+b1 breaker
+o1 outlet
+j1 box
+s1 switch
+l1 light
+s2 switch
+l2 light
+b1 o1 1
+b1 j1 2
+o1 j1 1
+o1 s1 3
+o1 s2 4
+j1 s1 5
+j1 s2 6
+s1 l1 7
+s2 l1 1
+s1 l2 1
+l1 l2 1
+s2 l2 10
+
+7 8
+b1 breaker
+j1 box
+o1 outlet
+s1 switch
+l1 light
+s2 switch
+l2 light
+b1 j1 1
+j1 o1 1
+o1 s2 1
+s2 l2 2
+j1 s1 1
+l1 s1 2
+s1 l2 1
+l1 s2 1
+
+6 7
+b1 breaker
+j1 box
+o1 outlet
+s1 switch
+l1 light
+s2 switch
+b1 j1 2
+b1 s2 2
+b1 o1 2
+s2 s1 2
+s1 l1 2
+o1 l1 1
+l1 j1 1

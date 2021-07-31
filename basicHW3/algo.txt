@@ -1,0 +1,6 @@
+find best path by "recursively finding"
+check if that node we are visiting already has an optimal one, if so, return it instead of
+traversing even more
+update the start node's optimal by comparng the paths
+keep track of the biggest one out of all of the nodes
+
